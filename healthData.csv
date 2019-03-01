@@ -1,0 +1,51 @@
+﻿Date,Value1,Value2,Metric,Name1,Name2
+11/2/16,32.22,,BMI,BMI kg/m2,
+8/27/15,32.79,,BMI,BMI kg/m2,
+8/13/14,33.58,,BMI,BMI kg/m2,
+9/19/13,34.25,,BMI,BMI kg/m2,
+7/23/12,34.98,,BMI,BMI kg/m2,
+6/29/11,35.72,,BMI,BMI kg/m2,
+6/30/10,36.42,,BMI,BMI kg/m2,
+7/16/09,36.85,,BMI,BMI kg/m2,
+7/17/08,37.27,,BMI,BMI kg/m2,
+7/11/07,37.89,,BMI,BMI kg/m2,
+11/2/16,172,97,BP,SBP mmHg,DBP mmHg
+8/27/15,154,117,BP,SBP mmHg,DBP mmHg
+8/13/14,196,117,BP,SBP mmHg,DBP mmHg
+9/19/13,147,91,BP,SBP mmHg,DBP mmHg
+7/23/12,189,92,BP,SBP mmHg,DBP mmHg
+6/29/11,180,108,BP,SBP mmHg,DBP mmHg
+6/30/10,190,117,BP,SBP mmHg,DBP mmHg
+7/16/09,191,102,BP,SBP mmHg,DBP mmHg
+7/17/08,187,98,BP,SBP mmHg,DBP mmHg
+7/11/07,146,101,BP,SBP mmHg,DBP mmHg
+11/2/16,60,,GFR,  eGFR mL/min/{1.73_m2},
+8/27/15,60,,GFR,  eGFR mL/min/{1.73_m2},
+8/13/14,60,,GFR,  eGFR mL/min/{1.73_m2},
+9/19/13,60,,GFR,  eGFR mL/min/{1.73_m2},
+7/23/12,60,,GFR,  eGFR mL/min/{1.73_m2},
+6/29/11,60,,GFR,  eGFR mL/min/{1.73_m2},
+6/30/10,60,,GFR,  eGFR mL/min/{1.73_m2},
+7/16/09,60,,GFR,  eGFR mL/min/{1.73_m2},
+7/17/08,60,,GFR,  eGFR mL/min/{1.73_m2},
+7/11/07,60,,GFR,  eGFR mL/min/{1.73_m2},
+11/2/16,1,,Cre,Creatinine mg/dL,
+8/27/15,1,,Cre,Creatinine mg/dL,
+8/13/14,1,,Cre,Creatinine mg/dL,
+9/19/13,1,,Cre,Creatinine mg/dL,
+7/23/12,1,,Cre,Creatinine mg/dL,
+6/29/11,1,,Cre,Creatinine mg/dL,
+6/30/10,1,,Cre,Creatinine mg/dL,
+7/16/09,1,,Cre,Creatinine mg/dL,
+7/17/08,1,,Cre,Creatinine mg/dL,
+7/11/07,1,,Cre,Creatinine mg/dL,
+11/2/16,13,,UN,Urea Nitrogen mg/dL,
+8/27/15,15,,UN,Urea Nitrogen mg/dL,
+8/13/14,18,,UN,Urea Nitrogen mg/dL,
+9/19/13,9,,UN,Urea Nitrogen mg/dL,
+7/23/12,7,,UN,Urea Nitrogen mg/dL,
+6/29/11,10,,UN,Urea Nitrogen mg/dL,
+6/30/10,9,,UN,Urea Nitrogen mg/dL,
+7/16/09,7,,UN,Urea Nitrogen mg/dL,
+7/17/08,12,,UN,Urea Nitrogen mg/dL,
+7/11/07,7,,UN,Urea Nitrogen mg/dL,
