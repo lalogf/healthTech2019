@@ -21,6 +21,14 @@ the app will show relevant renal disease measurements like: `Urea Nitrogen`,
 Filtration Rate`. For other patients, the app will show all the observations
 that the API gives.
 
+Patient Blood Pressure visualization
+
+![app-image](https://lh5.googleusercontent.com/TVCH9plTR3g4_15sUgEqp93EZHZDDMsDMflGCJLrQ6RyWlsn8RZStIBPMz1JPTehgVbZyj4bqm_EUReJvT8kQC1nxNf4TSXOlYRXOOOGqd5IAaspdnzR8QwNJPzJhAiFiiNC1mNhGvw)
+
+
+Patient Urea Nitrogen visualization
+
+![demo-image](https://lh3.googleusercontent.com/8HHgSrhL90v34G19LABSpsW3C9pGAwbGRUxcZJcMcs32EMZDRoB0FaXrmeHNEGyf0VkxnpTdtvWzzFua18X9PBC9J1JwW_idsgI9nb1QIFBbuyslDBPJ5jB_Z6B11H4WgXqvqReoJbM)
 
 ## App Status
 
