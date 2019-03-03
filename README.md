@@ -1,3 +1,40 @@
+# Health Tech web app
+
+
+**Live app:** [here](https://ht-kidney-disease.herokuapp.com/)
+
+## Intro
+
+Through our research we found that managing chronic kidney disease is especially
+difficult given the fact that it is tightly linked with many other health-issues
+such as hypertension, diabetes, diet etc. These vitals are constantly changing
+and so is the medication taken to control them. Thus physicians have a tougher
+time diagnosing care plans to patients as it is difficult to digest this
+historical data along with all the lab results that many CKD patients generate.
+We would like to build a tool that allows physicians to view the historical
+trends of these key metrics such as blood pressure, creatinine levels,
+etc.
+
+In this first version, when clicking `Lorie Hessel` (first patient in list)
+the app will show relevant renal disease measurements like: `Urea Nitrogen`,
+`Creatinine `, `Body Mass Index`, `Blood Pressure`,`Estimated Glomerular
+Filtration Rate`. For other patients, the app will show all the observations
+that the API gives.
+
+
+## App Status
+
+- **Current state:** In the '/' route the app shows a list of patients from
+  SmartonFhir API. Only when clicking: `Lorie Hessel` (first patient in list)
+  the app will show relevant renal disease measurements like: `Urea Nitrogen`,
+  `Creatinine `, `Body Mass Index`, `Blood Pressure`,`Estimated Glomerular
+  Filtration Rate`. For other patients, the app will show all the observations
+  that the API gives.
+
+- **Next steps:** identify more renal patients.
+
+## Installation
+
 1. Clone the repo into a directory of your choice and step into it.
 2. Ensure you have pip installed on your computer and then install the following packages:
 
@@ -19,13 +56,4 @@ python app.py
 
 4. Then go to the portal specified in your terminal (example output: Running on http://127.0.0.1:8050/)
 
-### App Status
 
-- **Current state:** In the '/' route the app shows a list of patients from
-  SmartonFhir API. Only when clicking: `Lorie Hessel` (first patient in list)
-  the app will show relevant renal disease measurements like: `Urea Nitrogen`,
-  `Creatinine `, `Body Mass Index`, `Blood Pressure`,`Estimated Glomerular
-  Filtration Rate`. For other patients, the app will show all the observations
-  that the API gives.
-
-- **Next steps:** identify more renal patients.
