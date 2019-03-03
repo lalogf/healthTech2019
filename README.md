@@ -18,3 +18,13 @@ python app.py
 ```
 
 4. Then go to the portal specified in your terminal (example output: Running on http://127.0.0.1:8050/)
+
+### App Status
+
+- **Current state:** In the '/' route the app shows a list of patients from
+  SmartonFhir API. When clicking to see the patient's personalized info, every
+  patient shows the same info, which is from: `Lorie Hessel` (one of the few
+  renal patients).
+
+- **Next steps:** Make the patients view change graphs dynamically showing
+  clicked patient's info. 
