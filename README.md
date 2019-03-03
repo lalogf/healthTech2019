@@ -26,5 +26,5 @@ python app.py
   patient shows the same info, which is from: `Lorie Hessel` (one of the few
   renal patients).
 
-- **Next steps:** Make the patients view change graphs dynamically showing
+- **Next steps:** Make the patient's view change graphs dynamically showing
   clicked patient's info. 
