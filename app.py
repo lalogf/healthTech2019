@@ -25,30 +25,24 @@ app = dash.Dash('app', server=server, external_stylesheets=external_stylesheets)
 
 r = requests.get('https://r2.smarthealthit.org/Patient/862ad751-1d67-4f5a-b5ef-dd7f42165b9b')
 r2 = requests.get('https://r2.smarthealthit.org/Patient')
-observationList = requests.get('https://r2.smarthealthit.org/Observation?subject:Patient=862ad751-1d67-4f5a-b5ef-dd7f42165b9b&_count=250')
-observations = observationList.json().get('entry')
-listOfCodes = ['Urea Nitrogen', 'Creatinine', 'Body Mass Index', 'Blood Pressure','Estimated Glomerular Filtration Rate']
-
 dropdownOptions = []
 
-listOfCodes.sort()
-
-for i in listOfCodes:
-    dropdownOptions.append({'label': i, 'value': i})
 
 patient = r.json()
 patients = r2.json().get('entry')
 tableRows = []
-tableRows.append(html.Tr([html.Td(patient.get('name')[0].get('given')[0]), html.Td(patient.get('name')[0].get('family')[0]), html.Td(html.A('See patient records',href='/patient/' + patient.get('id')))]))
+tableRows.append(html.Tr([html.Td(patient.get('name')[0].get('given')[0]), html.Td(patient.get('name')[0].get('family')[0]) , html.Td(html.A('See patient records',href='/patient/' + patient.get('id')))]))
 
 
 table_header = [
-    html.Thead(html.Tr([html.Th("Name"), html.Th("Last Name"), html.Th('Detail')]))
+    html.Thead(html.Tr([html.Th("Name"), html.Th("Last Name"),html.Th('Detail')]))
 ]
 
 
 for pat in patients:
-    tableRows.append(html.Tr([html.Td(pat.get('resource').get('name')[0].get('given')[0]), html.Td(pat.get('resource').get('name')[0].get('family')[0]), html.Td(html.A('See patient records',href='/patient/' + pat.get('resource').get('id')))]))
+    deceased = pat.get('resource').get('deceasedDateTime')
+    if deceased is None :
+        tableRows.append(html.Tr([html.Td(pat.get('resource').get('name')[0].get('given')[0]), html.Td(pat.get('resource').get('name')[0].get('family')[0]), html.Td(html.A('See patient records',href='/patient/' + pat.get('resource').get('id')))]))
 
 table_body = [html.Tbody(tableRows)]
 
@@ -120,11 +114,58 @@ def display_page(pathname):
     if pathname == "/":
         return patient_index
     else:
-        return patient_layout
+        print(type(pathname))
+        pathId = (pathname).split('/')[-1]
+        print(pathId)
+        patData = requests.get('https://r2.smarthealthit.org/Patient/' + pathId)
+        patDataParsed = patData.json()
+
+        if pathId == '862ad751-1d67-4f5a-b5ef-dd7f42165b9b':
+          listOfCodes = ['Urea Nitrogen', 'Creatinine', 'Body Mass Index', 'Blood Pressure','Estimated Glomerular Filtration Rate']
+        else:
+           patientObservations = requests.get('https://r2.smarthealthit.org/Observation?subject:Patient=' + pathId+ '&_count=250')
+           patientObservationsList = patientObservations.json().get('entry')
+           listOfCodes = []
+           for obs in patientObservationsList:
+               code = obs.get('resource').get('code').get('coding')[0].get('display')
+               if not code in listOfCodes:
+                listOfCodes.append(code)
+           
+        listOfCodes.sort()
+        for i in listOfCodes:
+            dropdownOptions.append({'label': i, 'value': i}) 
+
+        return dbc.Container([
+                dbc.Row([html.Div([
+                html.H1('Patient Metrics and Vitals'),
+                html.H3('{}'.format(patDataParsed.get('name')[0].get('prefix')[0] +  " " +patDataParsed.get('name')[0].get('given')[0] + " " + patDataParsed.get('name')[0].get('family')[0])),
+                html.Div(children='''
+                    Birthday: 
+                ''' + '{}'.format(patDataParsed.get('birthDate'))),
+                 html.Div(children='''
+                    Gender:  
+                ''' + '{}'.format(patDataParsed.get('gender'))),
+                 html.Div(children='''
+                    Phone: 
+                ''' + patient.get('telecom')[0].get('value') ),
+                 html.Div([
+                    html.P('ID: ' + '{}'.format(patDataParsed.get('id'))),
+                ]),
+                dcc.Dropdown(
+                    id='my-dropdown',
+                    options=dropdownOptions,
+                    value='Blood Pressure'
+                ),
+                dcc.Graph(id='my-graph')])])])
+
+
 
 @app.callback(Output('my-graph', 'figure'),
-              [Input('my-dropdown', 'value')])
-def update_graph(selected_dropdown_value):
+              [Input('my-dropdown', 'value'), Input('url', 'pathname')])
+def update_graph(selected_dropdown_value, pathname):
+    pathId = (pathname).split('/')[-1]
+    observationList = requests.get('https://r2.smarthealthit.org/Observation?subject:Patient='+ pathId+'&_count=250')
+    observations = observationList.json().get('entry')
     labList = {
     'Unit': '',
     'Value1': [],
@@ -134,9 +175,6 @@ def update_graph(selected_dropdown_value):
     fig = tls.make_subplots(rows=2, cols=1, shared_xaxes=True,vertical_spacing=0.009,horizontal_spacing=0.009)
     fig['layout']['margin'] = {'l': 30, 'r': 10, 'b': 50, 't': 25}
     fig['layout']['showlegend'] = True
-    
-
-
     if selected_dropdown_value == 'Blood Pressure':
         for ob in observations:
             if ob.get('resource').get('code').get('coding')[0].get('display') == selected_dropdown_value:
