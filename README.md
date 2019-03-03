@@ -25,11 +25,9 @@ that the API gives.
 ## App Status
 
 - **Current state:** In the '/' route the app shows a list of patients from
-  SmartonFhir API. Only when clicking: `Lorie Hessel` (first patient in list)
-  the app will show relevant renal disease measurements like: `Urea Nitrogen`,
-  `Creatinine `, `Body Mass Index`, `Blood Pressure`,`Estimated Glomerular
-  Filtration Rate`. For other patients, the app will show all the observations
-  that the API gives.
+  SmartonFhir API. Only when clicking first patient in list the app will show
+  relevant renal disease measurements. For other patients, the app will show all
+  the observations that the SmartonFhir API gives.
 
 - **Next steps:** identify more renal patients.
 
