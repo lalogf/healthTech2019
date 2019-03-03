@@ -1,4 +1,5 @@
-Ensure you have pip installed on your computer and then install the following packages in a directory of your choice:
+1. Clone the repo into a directory of your choice and step into it.
+2. Ensure you have pip installed on your computer and then install the following packages:
 
 ```bash
 pip install dash==0.38.0  # The core dash backend
@@ -9,10 +10,10 @@ pip install dash-daq==0.1.0  # DAQ components (newly open-sourced!)
 ```
 
 
-Then in the directory with app.py run: 
+3. Then run in the directory where the repo was cloned: 
 
 ```bash
 python app.py
 ```
 
-Then go to the portal specified in your terminal (example output: Running on http://127.0.0.1:8050/)
+4. Then go to the portal specified in your terminal (example output: Running on http://127.0.0.1:8050/)
