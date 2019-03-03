@@ -1,3 +1,4 @@
+import os
 import dash
 from dash.dependencies import Input, Output, State
 import dash_bootstrap_components as dbc
@@ -13,15 +14,17 @@ import flask
 from flask import request, render_template
 import pandas as pd
 import time
-import os
 
-server = flask.Flask('app')
-server.secret_key = os.environ.get('secret_key', 'secret')
 
-df = pd.read_csv('https://raw.githubusercontent.com/ishanvirk/healthTech2019/master/healthData.csv')
+# server = flask.Flask('app')
+# server.secret_key = os.environ.get('secret_key', 'secret')
+
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
-app = dash.Dash('app', server=server, external_stylesheets=external_stylesheets)
+app = dash.Dash(__name__, server=server, external_stylesheets=external_stylesheets)
+
+server = app.server
+server.secret_key = os.environ.get('secret_key', 'secret')
 
 r = requests.get('https://r2.smarthealthit.org/Patient/862ad751-1d67-4f5a-b5ef-dd7f42165b9b')
 r2 = requests.get('https://r2.smarthealthit.org/Patient')
