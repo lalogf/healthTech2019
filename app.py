@@ -16,15 +16,12 @@ import pandas as pd
 import time
 
 
-# server = flask.Flask('app')
-# server.secret_key = os.environ.get('secret_key', 'secret')
+server = flask.Flask('app')
+server.secret_key = os.environ.get('secret_key', 'secret')
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
-app = dash.Dash(__name__, server=server, external_stylesheets=external_stylesheets)
-
-server = app.server
-server.secret_key = os.environ.get('secret_key', 'secret')
+app = dash.Dash('app', server=server, external_stylesheets=external_stylesheets)
 
 r = requests.get('https://r2.smarthealthit.org/Patient/862ad751-1d67-4f5a-b5ef-dd7f42165b9b')
 r2 = requests.get('https://r2.smarthealthit.org/Patient')
