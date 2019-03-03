@@ -22,9 +22,10 @@ python app.py
 ### App Status
 
 - **Current state:** In the '/' route the app shows a list of patients from
-  SmartonFhir API. When clicking to see the patient's personalized info, every
-  patient shows the same info, which is from: `Lorie Hessel` (one of the few
-  renal patients).
+  SmartonFhir API. Only when clicking: `Lorie Hessel` (first patient in list)
+  the app will show relevant renal disease measurements like: `Urea Nitrogen`,
+  `Creatinine `, `Body Mass Index`, `Blood Pressure`,`Estimated Glomerular
+  Filtration Rate`. For other patients, the app will show all the observations
+  that the API gives.
 
-- **Next steps:** Make the patient's view change graphs dynamically showing
-  clicked patient's info. 
+- **Next steps:** identify more renal patients.
